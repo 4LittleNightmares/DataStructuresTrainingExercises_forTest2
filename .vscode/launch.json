@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/Papdm/Documents/GitHub/Estudo Teste 1 Basico -- Dificil/Treino_Teste2",
-      "program": "c:/Users/Papdm/Documents/GitHub/Estudo Teste 1 Basico -- Dificil/Treino_Teste2/build/Debug/outDebug",
+      "cwd": "c:/Users/Pedro Matos/Documents/GitHub/DataStructuresTrainingExercises_forTest2",
+      "program": "c:/Users/Pedro Matos/Documents/GitHub/DataStructuresTrainingExercises_forTest2/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
