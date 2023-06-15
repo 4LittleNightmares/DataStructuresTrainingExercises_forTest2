@@ -78,12 +78,14 @@ void addCompraCliente (cliente c, produto p, int num){
     c->total += valorCompra(comp);
 }
 
-// 
+
+// complexidade caso médio: O(n^2) n é o numero de produtos comprados pelo cliente, ou seja, o tamanho da sequencia
+//                          e está dentro de um ciclo, logo a complexidade é O(n^2)
 int remCompraCliente (cliente c, char* cod){
     int num = 0; // numero de unidades removidas
     for (int i = 0; i < tamanhoSequencia(c->compras); i++){
         compra comp = elemPosSequencia(c->compras, i);
-        if (strcmp(cod, codigoProduto(produtoCompra(comp))) == 0){ // se o codigo do produto for igual ao codigo do produto da compra
+        if (strcmp(cod, codigoProduto(produtoCompra(comp))) == 0){
             num = unidadesCompra(comp);
             c->total -= valorCompra(comp);
             destroiCompra(comp);
@@ -94,6 +96,7 @@ int remCompraCliente (cliente c, char* cod){
     return num;
 }
 
+// complexidade caso médio: O(n) n é o numero de produtos comprados pelo cliente, ou seja, o tamanho da sequencia
 int existeProdutoCliente (cliente c; char* cod){
     int num = 0;
     for (int i = 0; i < tamanhoSequencia(c->compras); i++){
@@ -106,6 +109,7 @@ int existeProdutoCliente (cliente c; char* cod){
     return num;
 }
 
+// complexidade caso médio: O(n) n é o numero de produtos comprados pelo cliente, ou seja, o tamanho da sequencia
 iterador comprasCliente (cliente c){
     int num = 0;
     void* vetor = malloc (tamanhoSequencia(c->compras) * sizeof (compra));
