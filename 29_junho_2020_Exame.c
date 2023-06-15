@@ -36,6 +36,7 @@ int existeProdutoCliente (cliente c; char* cod);
 iterador comprasCliente (cliente c);
 
 // funções feitas
+// complexidade caso médio: O(1) (o nif tem tamanho fixo)
 cliente criaCliente (char* email, char* nome, char* nif){
     cliente c = (cliente) malloc (sizeof (struct _cliente));
     // colocar o nif no cliente
@@ -53,6 +54,8 @@ cliente criaCliente (char* email, char* nome, char* nif){
     return c;
 }
 
+// complexidade caso médio: O(n) onde n é o número de compras do cliente
+// complexidade caso pior: O(n) onde n é o número de compras do cliente
 void destroiCliente (cliente c){
     for (int i = 0); i < comprimentoSequencia(c->compras); i++){
         destroiNoSimples(dameElemSequencia(c->compras, i));
@@ -62,17 +65,20 @@ void destroiCliente (cliente c){
     free(c);
 }
 
+// complexidade caso médio: O(1)
+// complexidade caso pior: O(1)
 float precoCompraCliente (cliente c){
     return c->total;
 }
 
+// complexidade caso médio: O(n) n é o numero de produtos comprados pelo cliente
 void addCompraCliente (cliente c, produto p, int num){
     compra comp = criaCompra(num, p);
-    insereInicioSequencia(c->compras, comp);
     adicionaPosSequencia(c->compras, comp, (tamanhoSequencia(c->compras)+1));
     c->total += valorCompra(comp);
 }
 
+// 
 int remCompraCliente (cliente c, char* cod){
     int num = 0; // numero de unidades removidas
     for (int i = 0; i < tamanhoSequencia(c->compras); i++){
